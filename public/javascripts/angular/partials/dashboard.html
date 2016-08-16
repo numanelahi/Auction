@@ -1,0 +1,51 @@
+<h1>{{id}}</h1>
+<div class="container">
+    <div class="row">
+        <!--Player stats-->
+        <div class="col-md-4 custom" user-widget>
+
+        </div>
+        <!--Inventory-->
+        <div class="col-md-4 custom" inventory-widget>
+            <h3 class="text-center">Inventory</h3>
+        </div>
+        <!--Current auction-->
+        <div class="col-md-4 custom" current-auction-widget>
+            <h3 class="text-center">Current auction</h3>
+        </div>
+    </div>
+</div>
+
+
+<div id="confirm" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Auction confirmation</h4>
+            </div>
+            <form name="aucItem" novalidate>
+            <div class="modal-body">
+                <image src="{{selItem.image}}" height="20px" width="20px"></image>
+                {{selItem.item_name}}&nbsp;&nbsp;Quantity:
+                <input type="number" name="aucQty" max="{{selItem.quantity}}" min = "1" ng-model="aucQty" ng-required="true" class="form-control" />
+                <span ng-show="aucItem.aucQty.$dirty && aucItem.aucQty.$error.required && !(selItem.quantity < 1)" style="color: red;">Field empty</span>
+                <span ng-show="aucItem.aucQty.$dirty && aucItem.aucQty.$error.min && !(selItem.quantity < 1)" style="color: red;">Value cant be less than 1</span>
+                <span ng-show="aucItem.aucQty.$dirty && aucItem.aucQty.$error.max && !(selItem.quantity < 1)" style="color: red;">Value cant be greater than {{selItem.quantity}}</span>
+                <span ng-show="aucItem.aucQty.$dirty && aucItem.aucQty.$error.number && !(selItem.quantity < 1)" style="color: red;">Value is not a number</span>
+                <span ng-show="selItem.quantity < 1" style="color: red;">You have none of it</span>
+                <br/>Minimum bid:<input type="number" name="minBid" ng-model="minBid" min = "1" ng-required="true" class="form-control" />
+                <span ng-show="aucItem.minBid.$dirty && aucItem.minBid.$error.required" style="color: red;">Field empty</span>
+                <span ng-show="aucItem.minBid.$dirty && aucItem.minBid.$error.min" style="color: red;">Value cant be less than 1</span>
+                <span ng-show="aucItem.minBid.$dirty && aucItem.minBid.$error.number" style="color: red;">Value is not a number</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="startAuction()" data-dismiss="modal" ng-show="aucItem.$valid">Start</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<h3 class="text-center">Current auction</h3>
+<div ng-show="aucFlag" class="text-center">
+    <div ng-hide="winnerDec">
+        <image src="{{auctionData.image}}" height="150px" width="150px"></image><br/>
+        Seller : {{auctionData.username}}<br/>
+        Item name : {{auctionData.item_name}}<br/>
+        Quantity : {{auctionData.aucQty}}<br/><br/><br/>
+        Time left : {{auctionData.time}}<br/>
+        Minimum bid : {{auctionData.minBid}}<br/>
+        Winning bid : {{auctionData.winningBid}}<br/><br/>
+        <div ng-show="user.username !== auctionData.username">
+            <form name="bid" novalidate>
+                Your bid:<input type="number" class="form-control" min="{{auctionData.winningBid ? auctionData.winningBid + 1 : auctionData.minBid }}" max="{{validateCoins}}" name="proposedBid" ng-model="proposedBid" ng-required="true"/>
+                <span style="color:red;" ng-show="bid.proposedBid.$dirty && bid.proposedBid.$error.required ">Field empty</span>
+                <span style="color:red;" ng-show="bid.proposedBid.$dirty && bid.proposedBid.$error.min ">Value can't be less than {{auctionData.winningBid ? auctionData.winningBid + 1 : auctionData.minBid}}</span>
+                <span style="color:red;" ng-show="bid.proposedBid.$dirty && bid.proposedBid.$error.max || validateCoins < auctionData.minBid || validateCoins < auctionData.winningBid">You dont have enough coins</span>
+                <button ng-click="placeBid()" ng-show="bid.$valid" class="btn btn-primary">Place bid</button>
+            </form>
+        </div>
+    </div>
+    <div ng-show="winnerDec">
+        The winner is {{auctionData.winner}}
+    </div>
+</div>
+<div ng-hide="aucFlag" class="text-center">
+    {{aucMsg}}
+</div>

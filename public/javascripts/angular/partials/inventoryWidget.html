@@ -1,0 +1,9 @@
+<h3 class="text-center">Inventory</h3>
+<table class="table table-striped table-bordered">
+    <tr ng-repeat="item in items">
+        <td>{{item.item_name}}</td>
+        <td>{{item.quantity}}</td>
+        <td><image src="{{item.image}}" width="40px" height="40px"></image></td>
+        <td><button type="button" ng-click="showPopup()" data-toggle="modal" data-target="#confirm" class="btn btn-primary">Auction</button></td>
+    </tr>
+</table>

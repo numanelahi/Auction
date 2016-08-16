@@ -1,0 +1,18 @@
+{
+  "name": "angular",
+  "description": "angular client side dependencies",
+  "main": "",
+  "authors": [
+    "Numan Elahi"
+  ],
+  "license": "NCL",
+  "homepage": "#",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

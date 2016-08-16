@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>[[ title ]]</title>
+    <link rel='stylesheet' href='/static/stylesheets/style.css' />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .custom {
+        border: solid 1px;
+        padding: 10px;
+        margin : 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div ui-view></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/javascripts/bower_components/angular/angular.js"></script>
+    <script src="/static/javascripts/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/static/javascripts/angular/app.js"></script>
+    <script src="/static/javascripts/angular/js/controllers.js"></script>
+    <script src="/static/javascripts/angular/js/directives.js"></script>
+    <script src="/static/javascripts/angular/js/factories.js"></script>
+    <script src="/static/javascripts/angular/js/services.js"></script>
+    <script src="/static/javascripts/bower_components/angular-cookies/angular-cookies.js"></script>
+
+  </body>
+</html>
